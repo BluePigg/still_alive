@@ -488,6 +488,7 @@ void write_credits(std::array<int, 2> pos) {
 }
 
 ma_engine engine;
+ma_sound g_sound;
 
 void play_audio() {
   static const unsigned char audioData[] = {
@@ -497,22 +498,23 @@ void play_audio() {
 
   ma_result result;
 
-  result = ma_engine_init(NULL, &engine);
-  if (result != MA_SUCCESS) {
-    return;
-  }
-
-  result = ma_resource_manager_register_encoded_data(
-      ma_engine_get_resource_manager(&engine), "embedded_audio.wav", audioData,
-      audioDataSize);
+  result = ma_sound_init_from_file_in_memory(
+      &engine, 
+      audioData, 
+      audioDataSize, 
+      MA_SOUND_FLAG_DECODE, // 미리 디코딩해서 메모리에 올리거나 스트리밍(0) 설정
+      NULL, 
+      &g_sound
+  );
 
   if (result != MA_SUCCESS) {
     ma_engine_uninit(&engine);
     return;
   }
 
-  result = ma_engine_play_sound(&engine, "embedded_audio.wav", NULL);
+  result = ma_sound_start(&g_sound);
   if (result != MA_SUCCESS) {
+    ma_sound_uninit(&g_sound);
     ma_engine_uninit(&engine);
     return;
   }
