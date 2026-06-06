@@ -498,7 +498,7 @@ void play_audio() {
 
   ma_result result;
 
-  result = ma_sound_init_from_file_in_memory(
+  result = ma_sound_init_from_memory(
       &engine, 
       audioData, 
       audioDataSize, 
