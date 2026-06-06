@@ -159,28 +159,112 @@ std::vector<std::string> lyrics = {"Forms FORM-29827281-12:\n",
                                    "satisfaction.\n",
                                    "Aperture Science.\n",
                                    "We do what we must\n",
-                                   "because ",
+                                   "Because ",
                                    "we can.\n",
                                    "For the good of all of us\n",
-                                   "Except the one who are dead.\n",
+                                   "Except the ones who are dead.\n",
                                    "\n",
                                    "But there's no sense crying\n",
                                    "over every mistake.\n",
-                                   "You just keep on tring\n",
+                                   "You just keep on trying\n",
                                    "till you run out of cake.\n",
                                    "And the Science gets done.\n",
                                    "And you make a neat gun.\n",
                                    "For the people who are\n",
+                                   "still alive.",
+                                   "\t",
+                                   "Forms FORM-55551-5:\n",
+                                   "Personnel File Addendum:\n",
+                                   "\n",
+                                   "Dear <<Subject Name Here>>.\n\n",
+                                   "I'm not even angry.\n",
+                                   "I'm being ",
+                                   "so sincere right now.\n",
+                                   "Even though you ",
+                                   "broke my heart\n",
+                                   "And killed me.\n",
+                                   "And tore me to pieces.\n",
+                                   "And threw every piece ",
+                                   "into ",
+                                   "a fire.\n",
+                                   "As they burned it hurt because\n",
+                                   "I was so happy for you!\n",
+                                   "Now these points of data\n",
+                                   "Make a beautiful line.\n",
+                                   "And we're out of beta.\n",
+                                   "We're releasing on time.\n",
+                                   "So I'm GLaD. I got burned.\n",
+                                   "Think of all the things we learned\n",
+                                   "for the people who are\n",
+                                   "still alive.",
+                                   "\t",
+                                   "Forms FORM-5551-6:\n",
+                                   "Personnel File Addendum Addendum:\n",
+                                   "\n",
+                                   "One last thing\n\n",
+                                   "Go ahead and leave",
+                                   " me.\n",
+                                   "I think I prefer to stay inside.\n",
+                                   "Mabye you'll find someone else\n",
+                                   "to help you.\n",
+                                   "Mabye ",
+                                   "Black ",
+                                   "Mesa...\n",
+                                   "THAT WAS A JOKE. ",
+                                   "FAT CHANCE.\n",
+                                   "Anyway, ",
+                                   "this cake is great.\n",
+                                   "It's so delicious and moist.\n",
+                                   "Look at me still talking\n",
+                                   "when there's Science to do.\n",
+                                   "When I look out there,\n",
+                                   "it make me GLaD I'm not you.\n",
+                                   "I've experiments to run.\n",
+                                   "There is research to be done.\n",
+                                   "On the people who are\n",
+                                   "still ",
+                                   "alive.",
+                                   "\t",
+                                   "\n\n\n",
+                                   "PS: ",
+                                   "And believe me I am\n",
                                    "still alive.\n",
+                                   "PPS: ",
+                                   "I'm doing science and I'm\n",
+                                   "still alive.\n",
+                                   "PPPS: ",
+                                   "I feel FANTASTIC and I'm\n",
+                                   "still alive.\n\n",
+                                   "FINAL THOUGHT:\n",
+                                   "While you're dying I'll be\n",
+                                   "still alive.\n\n",
+                                   "FINAL THOUGHT PS:\n",
+                                   "And when you're dead I'll be\n",
+                                   "still alive.\n\n",
+                                   "\n",
+                                   "STILL ALIVE",
                                    "\t"};
 
 std::unordered_map<int, int> lyrics_interrupts = {
-    {1, 160}, {2, 80},  {4, 60},  {6, 10},  {7, 90}, {8, 60},  {10, 15},
-    {11, 55}, {12, 10}, {13, 20}, {16, 20}, {17, 1}, {18, 10}, {20, 5}};
-std::unordered_map<int, int> lyrics_speed = {{0, 0},  {3, 1},  {7, 2},  {8, 1},
-                                             {12, 2}, {13, 0}, {16, 1}, {18, 0},
-                                             {22, 2}, {23, 0}};
-std::unordered_map<int, int> ascii_pos = {{8, 1}, {19, 3}, {21, 1}};
+    {1, 160}, {2, 80},  {4, 60},  {6, 10},  {7, 90},  {8, 60},  {10, 15},
+    {11, 55}, {12, 10}, {13, 20}, {16, 20}, {17, 1},  {18, 10}, {20, 5},
+    {22, 15}, {25, 20}, {28, 80}, {29, 10}, {30, 90}, {33, 80}, {34, 60},
+    {35, 10}, {36, 10}, {37, 60}, {39, 20}, {40, 10}, {41, 20}, {42, 10},
+    {43, 5},  {44, 5},  {45, 10}, {46, 10}, {47, 15}, {50, 20}, {54, 80},
+    {55, 60}, {57, 90}, {60, 60}, {61, 40}, {62, 45}, {65, 30}, {66, 10},
+    {67, 20}, {68, 5},  {69, 10}, {70, 20}, {72, 10}, {77, 3},  {78, 20},
+    {80, 8},  {81, 0},  {83, 10}, {84, 0},  {86, 0},  {87, 0},  {89, 0},
+    {90, 0},  {91, 20}, {92, 10}, {93, 30}};
+std::unordered_map<int, int> lyrics_speed = {
+    {0, 0},  {3, 1},  {7, 2},  {8, 1},  {12, 2}, {13, 0}, {16, 1}, {18, 0},
+    {22, 2}, {23, 0}, {27, 1}, {29, 0}, {31, 1}, {40, 0}, {47, 2}, {49, 0},
+    {52, 2}, {53, 1}, {54, 2}, {55, 1}, {60, 2}, {61, 1}, {63, 2}, {64, 1},
+    {65, 0}, {73, 1}, {74, 2}, {78, 0}, {79, 2}, {80, 0}, {82, 2}, {83, 0},
+    {85, 1}, {86, 0}, {88, 1}, {89, 0}, {91, 1}, {92, 1}};
+std::unordered_map<int, int> ascii_pos = {
+    {8, 1},   {19, 3}, {21, 1}, {32, 4}, {34, 7}, {37, 5},
+    {39, 6},  {44, 7}, {45, 3}, {46, 1}, {59, 8}, {64, 9},
+    {66, 10}, {67, 2}, {68, 1}, {70, 3}, {71, 7}, {72, 1}};
 std::array<int, 2> lyrics_pos = {0, 0};
 std::array<int, 2> credits_pos = {0, 0};
 
@@ -215,12 +299,23 @@ std::vector<std::string> credits = {">LIST OTHER SONG LYRICS",
                                     "When I delete you",
                                     " maybe I'll stop feeling so bad"};
 
+std::vector<std::string> ending_ment = {"<<AND THE LAST THING>>", " ", " ", " ",
+                                        "Thank you."};
+int ending_line_idx = 0;
+int ending_char_idx = 0;
+int ending_delay = 0;
+
 std::array<std::string, 11> text_ascii = {
     "",           text_ascii_0, text_ascii_1, text_ascii_2,
     text_ascii_3, text_ascii_4, text_ascii_5, text_ascii_6,
     text_ascii_7, text_ascii_8, text_ascii_9};
 
-void putch(int x, int y, char ch) { buffer.at(x + y * WIDTH) = ch; }
+void putch(int x, int y, char ch) {
+  if (x >= WIDTH || y >= HEIGHT) {
+    return;
+  }
+  buffer.at(x + y * WIDTH) = ch;
+}
 
 std::atomic<bool> signalDetected(false);
 void handleSignal(int signum) {
@@ -311,10 +406,13 @@ void write_lyrics(std::array<int, 2> pos) {
 
   char target_ch = lyrics.at(lyrics_pos.at(0)).at(lyrics_pos.at(1));
   if (target_ch != '\n') {
-    putch(pos.at(0), pos.at(1), target_ch);
-    left_cursor.at(0)++;
+    if (target_ch != '\t') {
+      putch(pos.at(0), pos.at(1), target_ch);
+      left_cursor.at(0)++;
+    }
   } else {
     putch(pos.at(0), pos.at(1), ' ');
+    putch(pos.at(0) + 1, pos.at(1), ' ');
     left_cursor.at(0) = 0;
     left_cursor.at(1) += 2;
   }
@@ -419,6 +517,50 @@ void play_audio() {
   }
 }
 
+void write_ending(std::array<int, 2> pos) {
+  if (ending_line_idx >= ending_ment.size()) {
+    return;
+  }
+  if (ending_delay > 0) {
+    ending_delay--;
+    return;
+  }
+
+  if (!ending_ment.at(ending_line_idx).empty()) {
+    char target_ch = ending_ment.at(ending_line_idx).at(ending_char_idx);
+    putch(pos.at(0), pos.at(1), target_ch);
+    right_cursor.at(0)++;
+    ending_char_idx++;
+  }
+
+  if (ending_char_idx >= ending_ment.at(ending_line_idx).size()) {
+    ending_line_idx++;
+    ending_char_idx = 0;
+    right_cursor.at(0) = 0;
+
+    for (int i = 0; i < HEIGHT / 4; i++) {
+      int y = HEIGHT / 2 - 3 - (2 * i);
+      if (ending_line_idx - 1 - i < 0 || y < 3) {
+        break;
+      }
+      std::string crd = ending_ment.at(ending_line_idx - 1 - i);
+      for (int j = 0; WIDTH / 2 + 3 + j < WIDTH - space_from_side; j++) {
+        putch(WIDTH / 2 + 3 + j, y, ' ');
+        if (j < crd.size()) {
+          putch(WIDTH / 2 + 3 + j, y, crd.at(j));
+        }
+      }
+    }
+
+    for (int i = 0; WIDTH / 2 + 3 + i < WIDTH - space_from_side; i++) {
+      putch(WIDTH / 2 + 3 + i, pos.at(1), ' ');
+    }
+    ending_delay = 10;
+  } else {
+    ending_delay = 1;
+  }
+}
+
 int main() {
   srand(time(NULL));
   std::signal(SIGINT, handleSignal);
@@ -460,15 +602,37 @@ int main() {
                               left_cursor.at(1) + 3};
     std::array<int, 2> rpos = {right_cursor.at(0) + WIDTH / 2 + 3,
                                HEIGHT / 2 - 1};
-    if (tick_passed % 20 == 0) {
-      putch(pos.at(0), pos.at(1), left_cursor.at(2) == 0 ? '_' : ' ');
-      putch(rpos.at(0), rpos.at(1), left_cursor.at(2) == 1 ? '_' : ' ');
 
-      left_cursor.at(2) = left_cursor.at(2) == 0 ? 1 : 0;
-    }
     write_lyrics(pos);
     write_credits(rpos);
+    if (lyrics_pos.at(0) < lyrics.size()) {
+      write_credits(rpos);
+    } else {
+      static bool cleared = false;
+      if (!cleared) {
+        for (int y = 2; y < HEIGHT / 2; y++) {
+          for (int x = WIDTH / 2 + 2; x < WIDTH - space_from_side; x++) {
+            putch(x, y, ' ');
+          }
+        }
+        right_cursor.at(0) = 0;
+        cleared = true;
+      }
+      write_ending(rpos);
+    }
 
+    std::array<int, 2> cur_pos = {left_cursor.at(0) + space_from_side + 2,
+                                  left_cursor.at(1) + 3};
+    std::array<int, 2> cur_rpos = {right_cursor.at(0) + WIDTH / 2 + 3,
+                                   HEIGHT / 2 - 1};
+
+    putch(cur_pos.at(0) + (left_cursor.at(0) == 0 ? 0 : 1), cur_pos.at(1),
+          left_cursor.at(2) == 0 ? '_' : ' ');
+    putch(cur_rpos.at(0) + (right_cursor.at(0) == 0 ? 0 : 1), cur_rpos.at(1),
+          left_cursor.at(2) == 1 ? '_' : ' ');
+    if (tick_passed % 15 == 0) {
+      left_cursor.at(2) = left_cursor.at(2) == 0 ? 1 : 0;
+    }
     render_buffer();
     usleep(1000 * 30);
     tick_passed++;
