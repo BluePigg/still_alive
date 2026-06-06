@@ -299,8 +299,9 @@ std::vector<std::string> credits = {">LIST OTHER SONG LYRICS",
                                     "When I delete you",
                                     " maybe I'll stop feeling so bad"};
 
-std::vector<std::string> ending_ment = {"<<AND THE LAST THING>>", " ", " ", " ",
-                                        "Thank you."};
+std::vector<std::string> ending_ment = {
+    " ", " ",         " ", " ", " ", " ", " ", "<<AND THE LAST THING>>",
+    " ", "Thank you."};
 int ending_line_idx = 0;
 int ending_char_idx = 0;
 int ending_delay = 0;
@@ -604,7 +605,6 @@ int main() {
                                HEIGHT / 2 - 1};
 
     write_lyrics(pos);
-    write_credits(rpos);
     if (lyrics_pos.at(0) < lyrics.size()) {
       write_credits(rpos);
     } else {
