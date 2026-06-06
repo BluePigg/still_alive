@@ -486,9 +486,7 @@ void write_credits(std::array<int, 2> pos) {
 
   credit_delay = 1;
 }
-
 ma_engine engine;
-ma_sound g_sound;
 
 void play_audio() {
   static const unsigned char audioData[] = {
@@ -498,13 +496,19 @@ void play_audio() {
 
   ma_result result;
 
-  result = ma_sound_init_from_memory(
-      &engine, 
+  // 1. 엔진 초기화
+  result = ma_engine_init(NULL, &engine);
+  if (result != MA_SUCCESS) {
+    return;
+  }
+
+  // 2. 가상 파일 이름을 "memory://audio.wav" 형태로 등록합니다.
+  // miniaudio 리소스 매니저는 디스크를 뒤지기 전에 이 가상 경로를 먼저 확인합니다.
+  result = ma_resource_manager_register_encoded_data(
+      ma_engine_get_resource_manager(&engine), 
+      "memory://audio.wav", 
       audioData, 
-      audioDataSize, 
-      MA_SOUND_FLAG_DECODE, // 미리 디코딩해서 메모리에 올리거나 스트리밍(0) 설정
-      NULL, 
-      &g_sound
+      audioDataSize
   );
 
   if (result != MA_SUCCESS) {
@@ -512,9 +516,10 @@ void play_audio() {
     return;
   }
 
-  result = ma_sound_start(&g_sound);
+  // 3. 엔진에게 '디스크 파일'이 아닌, 방금 등록한 '가상 경로'를 플레이하라고 명시합니다.
+  // 세 번째 인자를 NULL로 주면 기본 그룹에서 알아서 배경 재생됩니다.
+  result = ma_engine_play_sound(&engine, "memory://audio.wav", NULL);
   if (result != MA_SUCCESS) {
-    ma_sound_uninit(&g_sound);
     ma_engine_uninit(&engine);
     return;
   }
