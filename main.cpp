@@ -262,8 +262,8 @@ std::unordered_map<int, int> lyrics_speed = {
     {65, 0}, {73, 1}, {74, 2}, {78, 0}, {79, 2}, {80, 0}, {82, 2}, {83, 0},
     {85, 1}, {86, 0}, {88, 1}, {89, 0}, {91, 1}, {92, 1}};
 std::unordered_map<int, int> ascii_pos = {
-    {8, 1}, {13,2},{14,1},  {19, 3}, {21, 1}, {32, 4}, {34, 7}, {37, 5},
-    {39, 6},  {44, 7}, {45, 3}, {46, 1}, {59, 8}, {64, 9},
+    {8, 1},   {13, 2}, {14, 1}, {19, 3}, {21, 1}, {32, 4}, {34, 7},
+    {37, 5},  {39, 6}, {44, 7}, {45, 3}, {46, 1}, {59, 8}, {64, 9},
     {66, 10}, {67, 2}, {68, 1}, {70, 3}, {71, 7}, {72, 1}};
 std::array<int, 2> lyrics_pos = {0, 0};
 std::array<int, 2> credits_pos = {0, 0};
@@ -300,8 +300,9 @@ std::vector<std::string> credits = {">LIST OTHER SONG LYRICS",
                                     " maybe I'll stop feeling so bad"};
 
 std::vector<std::string> ending_ment = {
-    " ", " ",         " ", " ", " ", " ", " ", "<<AND THE LAST THING>>",
-    " ", "Thank you."};
+    ". . . ", ". . . ",    ". . . ", ". . . ",
+    ". . . ", ". . . ",    ". . . ", "<<AND THE LAST THING>>",
+    " ",      "Thank you."};
 int ending_line_idx = 0;
 int ending_char_idx = 0;
 int ending_delay = 0;
@@ -390,10 +391,14 @@ void clear_scr(char ch) {
 }
 
 void render_buffer() {
+  std::string print_buffer;
   printf("\033[?25l\033[2H");
+
+  print_buffer.reserve((WIDTH + 1) * HEIGHT);
   for (int i = 0; i < HEIGHT; i++) {
-    printf("%s\n", buffer.substr(i * WIDTH, WIDTH).c_str());
+    print_buffer += buffer.substr(i * WIDTH, WIDTH) + "\n";
   }
+  printf("%s", print_buffer.c_str());
   fflush(stdout);
 }
 
@@ -503,21 +508,20 @@ void play_audio() {
   }
 
   // 2. 가상 파일 이름을 "memory://audio.wav" 형태로 등록합니다.
-  // miniaudio 리소스 매니저는 디스크를 뒤지기 전에 이 가상 경로를 먼저 확인합니다.
+  // miniaudio 리소스 매니저는 디스크를 뒤지기 전에 이 가상 경로를 먼저
+  // 확인합니다.
   result = ma_resource_manager_register_encoded_data(
-      ma_engine_get_resource_manager(&engine), 
-      "memory://audio.wav", 
-      audioData, 
-      audioDataSize
-  );
+      ma_engine_get_resource_manager(&engine), "memory://audio.wav", audioData,
+      audioDataSize);
 
   if (result != MA_SUCCESS) {
     ma_engine_uninit(&engine);
     return;
   }
 
-  // 3. 엔진에게 '디스크 파일'이 아닌, 방금 등록한 '가상 경로'를 플레이하라고 명시합니다.
-  // 세 번째 인자를 NULL로 주면 기본 그룹에서 알아서 배경 재생됩니다.
+  // 3. 엔진에게 '디스크 파일'이 아닌, 방금 등록한 '가상 경로'를 플레이하라고
+  // 명시합니다. 세 번째 인자를 NULL로 주면 기본 그룹에서 알아서 배경
+  // 재생됩니다.
   result = ma_engine_play_sound(&engine, "memory://audio.wav", NULL);
   if (result != MA_SUCCESS) {
     ma_engine_uninit(&engine);
@@ -572,6 +576,7 @@ void write_ending(std::array<int, 2> pos) {
 int main() {
   srand(time(NULL));
   std::signal(SIGINT, handleSignal);
+  printf("\033[2J");
   printf("\033[38;2;255;165;0m\033[48;2;0;0;0m");
 
   for (int i = 0; i < WIDTH * HEIGHT; i++) {
